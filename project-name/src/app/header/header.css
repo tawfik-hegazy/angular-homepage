@@ -1,0 +1,49 @@
+.site-header {
+  display: flex;
+  background: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ebd1d180;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-size: auto;
+}
+.brand{
+  font-weight: bolder;
+}
+.brand-name {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-right: 40px;
+}
+.brand-lower{
+    font-size: 20px;
+    font-weight: bolder;
+  line-height: 1.2;
+  margin-left: 20px;
+}
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.navigation ul li a {
+  text-decoration: none;    
+  font-weight: bold;         
+  color: #000;            
+}
+
+.navigation a:hover {
+  text-decoration: underline; 
+}
+
+
+.auth-btn {
+  padding: 6px 12px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
