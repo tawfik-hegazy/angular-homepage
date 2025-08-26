@@ -1,0 +1,61 @@
+ 
+<h2>Sign Up</h2>
+ 
+<form #signupForm="ngForm" (ngSubmit)="onSubmit()">
+ 
+ 
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" ngModel required minlength="3" #nameRef="ngModel">
+ 
+        @if (nameRef.invalid && nameRef.touched) {
+            <small>*Valid name is Required</small>
+        }
+    </div>
+ 
+   
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" ngModel required email #emailRef="ngModel">
+ 
+        @if (emailRef.invalid && emailRef.touched) {
+            <small>*Valid Email is Required</small>
+        }
+    </div>
+ 
+        <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" ngModel required minlength="8" #passwordRef="ngModel">
+           @if (passwordRef.invalid && passwordRef.touched) {
+            <small>*Password is Required</small>
+        }
+    </div>
+ 
+        <div>
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" ngModel required minlength="8" #confirmPasswordRef="ngModel">
+           @if (confirmPasswordRef.invalid && confirmPasswordRef.touched) {
+            <small>*Confirm Password is Required</small>
+        }
+       </div>
+ 
+       
+        <div>
+        <label for="photo">Photo</label>
+        <input type="file" name="photo" ngModel accept="image/*"  #photoRef="ngModel">
+           @if (photoRef.invalid && photoRef.touched) {
+            <small>*Enter a Valid Image</small>
+        }
+       </div>
+ 
+ 
+ 
+    @if (error) {
+        <p>{{error}}</p>
+    }
+ 
+    <button type="submit"  [disabled]="signupForm.invalid">Sign In</button>
+</form>
+ 
+ 
+ 

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In </title>
+  <link rel="stylesheet" href="signin.css">
+</head>
+
+<!-- da hybka el header bdl mnktb fy folder-->
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-name">4U<br></span>
+    <span class="brand-lower">center</span>
+  </div>
+  <nav class="navigation">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#subjects">Subjects</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><button class="signin-btn">Sign In </button></li>
+    </ul>
+  </nav>
+</header>
+<!-------------------------sign in form-------------------------------------------------------------------------------------->
+<body>
+  <div class="signin-container">
+    <form class="form-section"   #signinForm="ngForm"  (ngSubmit)="onSubmit()">
+      <h1>Sign In</h1>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="email@gmail.com" ngModel required name="email" email #emailRef="ngModel">
+
+     @if (emailRef.invalid && emailRef.touched) {
+  <small class="error-message">*Valid Email is required</small>
+     }
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="password" ngModel required minlength="8" name="password"  #passwordRef="ngModel">
+
+     @if (passwordRef.invalid && passwordRef.touched) {
+  <small class="error-message">*Valid password is required</small>
+}
+
+      @if(error){
+        <p>{{error}}</p>
+      }
+
+      
+<button
+  type="submit"
+  [disabled]="signinForm.invalid"
+  [style.backgroundColor]="signinForm.invalid ? 'gray' : 'blue'"
+  style="color: white; padding: 10px 20px; border: none; border-radius: 5px;"
+>
+  Sign In
+</button>
+    </form>
+
+    <div class="image-section">
+      <img src="assets/logo.png" alt="4U Education Center Logo">
+    </div>
+  </div>
+</body>
+  <!-- hna hybka el footer-->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-section">
+      <h2>🌐 WHY 4U CENTER ?</h2>
+      <h3>The Idea Of The Site</h3>
+      <ul>
+        <li>Browse available courses from anywhere</li>
+        <li>Purchase access codes securely online</li>
+        <li>Use them whenever you're ready to learn</li>
+      </ul>
+      <p>No waiting. No hassle. Just smooth, smart access to the education you deserve.</p>
+      <p>“Your success, your pace — we’re just here to make it easier.”</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>👤 TOP TEACHERS</h3>
+      <p>"A good teacher teaches; a great teacher transforms."</p>
+
+      <h3>📅 DATE & CODE USAGE INFO</h3>
+      <p>
+        When you purchase a course code, you’re getting flexibility and convenience.
+        Use it any time during the academic year — no rush, no pressure. 
+        Once the year ends, the code will expire for fairness and updates.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>🔒 Security</h3>
+      <p>We’ve designed our system with bank-level encryption, so your personal info and payments are always safe.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>📍 LOCATION</h3>
+      <p>
+        Find us easily — we're closer than you think!<br />
+        4U Education Center is located in Nasr City, Cairo.<br />
+        <a href="https://maps.app.goo.gl/ZdMnHHbz4NJn1dB77" target="_blank">Click here to view on Google Maps</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-logo">4U Center</div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+</html>

@@ -1,0 +1,194 @@
+/*
+
+//step 1
+ // in the html :    <div class="form-section"   #jonForm="ngForm"  (ngsubmit)="onSubmitForm()">
+// step 2: in the sign in .ts :
+  
+
+you add this in the export of the ts
+//@viewChild('jobForm')jobForm !:NgForm;
+/*onSubmitForm(){
+    console.log(this.jobForm.value)
+
+    this.jobForm.reset // on submitting the form it will reset
+
+
+}
+
+setValue(){   //for adding default data
+this.jobForm.form.setvalue({
+fullname:"tawfik",
+position:'job',
+email:"tawfik@gmail.com"
+
+
+})
+
+}
+
+
+
+/*step 3 : in html : ex( 
+
+<input type="email" placeholder="email address" name='email' ngModel/>(connecting formControles [you will find it in the console of the page ])
+(we put the form control with the components except the buttons or the submit button of the form so we don't make any connection in it by NgModel)
+)
+
+1-touched:when you touch the component of form it alarms you with a border or something like this if u didn't write inside it 
+
+ex:
+<section class="container" [class.touched]="jobForm.touched">
+-- 
+<div class="input-box"[class.touched]="fname.touched">
+input<
+type="text"
+placeholder="full name"
+name="fullname"
+ngModel
+#fname='ngModel' />
+</div>   //by this when i touch the rectangle of it will warn you that you didn't write inside it 
+
+
+2-dirty:when you write in any thing in the form the all of the form becomed dirty
+
+validators:
+
+1-required://you must fill this field not optional
+
+<div class="input-box"[class.touched]="fname.valid">
+input<
+type="text"
+placeholder="full name"
+name="fullname"
+ngModel
+#fname='ngModel'
+required
+/>
+</div>  
+
+
+2-invalid:
+      <button type="submit" [disabled]="jobForm.invalid" [style.background]>Sign In</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ✅ 1. تأكد من استيراد FormsModule في app.module.ts
+// import { FormsModule } from '@angular/forms';
+
+// ✅ 2. في الـ HTML استخدم ngForm لربط النموذج
+// <form #jobForm="ngForm" (ngSubmit)="onSubmitForm()">
+
+// ✅ 3. استخدم ngModel و name لربط كل input مع النموذج
+// <input type="text" name="fullname" ngModel #fname="ngModel" />
+
+// ✅ 4. يمكن الوصول إلى النموذج داخل TypeScript باستخدام ViewChild
+// @ViewChild('jobForm') jobForm!: NgForm;
+
+// ✅ 5. داخل onSubmitForm تقدر تطبع قيمة النموذج بالكامل
+// console.log(this.jobForm.value);  // بيانات الفورم
+// console.log(this.jobForm.valid);  // حالة النموذج (صحيح أو لا)
+
+// ✅ 6. يمكنك إعادة تعيين النموذج بعد الإرسال
+// this.jobForm.reset();
+
+// ⚠️ 7. كل input عنده حالات ممكن نستخدمها لعمل Validation يدوي:
+
+// fname.touched   // المستخدم لمس الحقل وخرج منه
+// fname.dirty     // المستخدم غير محتوى الحقل
+// fname.valid     // القيمة صحيحة حسب Validators
+// fname.invalid   // القيمة غير صحيحة
+
+// ✅ 8. إضافة Validators مباشرة في HTML:
+
+// required       → الحقل مطلوب
+// email          → يجب أن تكون القيمة بصيغة بريد إلكتروني
+// minlength="3"  → أقل عدد حروف 3
+// maxlength="10" → أقصى عدد حروف 10
+
+// ✅ 9. مثال على عرض رسالة خطأ عند ترك الحقل فارغ:
+
+/*
+<div *ngIf="fname.touched && fname.invalid">
+  Full name is required
+</div>
+*/
+
+// ✅ 10. يمكن تغيير شكل الحقول بناءً على حالتها باستخدام CSS:
+
+/*
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+*/
+
+// ✅ 11. الأزرار داخل النموذج ما تحتاجش ngModel
+// <button type="submit">Submit</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

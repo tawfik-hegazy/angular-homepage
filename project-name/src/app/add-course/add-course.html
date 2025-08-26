@@ -1,0 +1,109 @@
+<div class="container">
+  <header>
+    <div>
+      <div class="title">Course Form</div>
+      <p class="lead">
+        Fill in the course details. Fields marked with
+        <span class="req">*</span> are required.
+      </p>
+    </div>
+  </header>
+
+  <form aria-label="Course form" [formGroup]="courseForm" (ngSubmit)="onsubmit()">
+    <!--connecting the functions that we wrote in the ts-->
+    <!-- Basic Info -->
+    <section class="card">
+      <h2>Course Information</h2>
+      <div class="fields">
+        <div class="field span-6">
+          <label for="courseName">Course Name <span class="req">*</span></label>
+          <input
+            id="courseName"
+            name="courseName"
+            type="text"
+            placeholder="e.g., Physics"
+            formControlName="courseName"
+          />
+           @if (courseForm.get('courseName')?.invalid && courseForm.get('courseName')?.touched) {
+    <div class="error">
+      @if (courseForm.get('courseName')?.errors?.['required']) {
+        <small>Course name is required.</small>
+      }
+    </div>
+  }
+        </div>
+        <!--            formControlName="courseName" : connecting the input with the controls-->
+
+<div class="field span-6">
+  <label for="teacherName">Teacher Name <span class="req">*</span></label>
+  <input
+    id="teacherName"
+    name="teacherName"
+    type="text"
+    placeholder="e.g., Ahmed Samir"
+    formControlName="teacherName"
+  />
+
+  @if (courseForm.get('teacherName')?.invalid && courseForm.get('teacherName')?.touched) {
+    <div class="error">
+      @if (courseForm.get('teacherName')?.errors?.['required']) {
+        <small>Teacher name is required.</small>
+      }
+    </div>
+  }
+</div>
+
+
+        <div class="field span-6">
+          <label for="price">Price ($) <span class="req">*</span></label>
+          <input
+            id="price"
+            name="price"
+            type="number"
+            placeholder="e.g., 120"
+            formControlName="price"
+            
+          />
+          @if (courseForm.get('price')?.invalid && courseForm.get('price')?.touched) {
+    <div class="error">
+      @if (courseForm.get('price')?.errors?.['required']) {
+        <small>Price is required.</small>
+      }
+      @if (courseForm.get('price')?.errors?.['min']) {
+        <small>Price must be a positive number.</small>
+      }
+    </div>
+  }
+        </div>
+
+        <div class="field span-6">
+          <label for="image">Image <span class="req">*</span></label>
+          <input
+            id="image"
+            name="image"
+            type="file"
+            accept="image/*"
+            formControlName="image"
+            
+          />
+          
+          <div class="hint">Upload a course image (JPG/PNG/WebP).</div>
+          
+  @if (courseForm.get('image')?.invalid && courseForm.get('image')?.touched) {
+    <div class="error">
+      <small>Image is required.</small>
+    </div>
+  }
+        </div>
+        
+      </div>
+    </section>
+
+    <div class="actions">
+      <button type="reset" class="btn ghost">Clear</button>
+            <button  class="btn ghost" (click)="setCourse()">set course</button>
+
+      <button type="submit" class="btn primary">Save Course</button>
+    </div>
+  </form>
+</div>
