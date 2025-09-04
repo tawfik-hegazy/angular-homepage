@@ -1,0 +1,35 @@
+<body class="body">
+  <section class="subjects-section">
+    <h2 class="subjects-title">Subjects</h2>
+    <div class="subjects-grid">
+      @for (course of courses; track $index) {
+        <div class="subject-card">
+          <div class="course-card">
+            <img [src]="'http://localhost:5000/uploads/' + course.image" 
+                 alt="cover image" 
+                 class="course-img">
+          </div>
+          <div class="subject-info">
+            <h3 class="subject-name">{{ course.courseName }}</h3>
+            <p class="subject-instructor">{{ course.teacherName }}</p>
+            <p class="subject-price">
+              <span class="price-color">{{ course.price }}</span>
+              <span class="price-highlight">EGP</span>
+            </p>
+
+            <button (click)="gotoDeletecourse(course._id)" class="btn-danger" >
+
+              Delete
+            </button>
+             <!-- <button (click)="gotoEditCourse(course._id)" class="btn-edit" >
+              
+             Edit
+            </button> -->
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <button (click)="gotoAddCourse()" class="main-btn">Add Course</button>
+</body>

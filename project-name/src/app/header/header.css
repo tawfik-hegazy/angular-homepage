@@ -38,12 +38,20 @@
 .navigation a:hover {
   text-decoration: underline; 
 }
+.navigation a.active {
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  font-size: 20px; /* corrected from 'size' */
+}
+
+
 
 
 .signin-btn {
   padding: 6px 12px;
-  background: #000;
+  background-color: #ffffff;
   color: white;
+  
   border: none;
   border-radius: 4px;
     cursor: pointer;

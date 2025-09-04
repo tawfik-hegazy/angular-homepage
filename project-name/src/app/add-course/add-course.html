@@ -84,7 +84,7 @@
             type="file"
             accept="image/*"
             formControlName="image"
-            
+            (change)="onFileSelected($event)"
           />
           
           <div class="hint">Upload a course image (JPG/PNG/WebP).</div>
@@ -100,10 +100,21 @@
     </section>
 
     <div class="actions">
+            <button (click)="gotoSubjects()" class="btn ghost">Back</button>
+
       <button type="reset" class="btn ghost">Clear</button>
             <button  class="btn ghost" (click)="setCourse()">set course</button>
 
-      <button type="submit" class="btn primary">Save Course</button>
+<button 
+  type="submit" 
+  class="btn primary" 
+  [class.disabled]="courseForm.invalid" 
+  [disabled]="courseForm.invalid">
+  Save Course
+</button>
+
+
+
     </div>
   </form>
 </div>

@@ -1,0 +1,55 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* admin panel list */
+.side {
+  width: 220px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.side h3 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.navigation ul {
+  list-style: none;
+}
+
+.navigation li {
+  margin: 15px 0;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.navigation a:hover {
+  background: #34495e;
+}
+
+.signin-btn {
+  padding: 6px 12px;
+  background-color: #100f0f;
+  color: white;
+  
+  border: none;
+  border-radius: 4px;
+    cursor: pointer;
+font-weight: bolder;
+}

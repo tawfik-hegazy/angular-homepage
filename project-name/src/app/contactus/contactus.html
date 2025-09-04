@@ -1,0 +1,53 @@
+<body class="background">
+    
+
+<div class="contact-container">
+  <h2>Contact Us</h2>
+  <p class="subtitle">We’d love to hear from you! Please fill out the form below.</p>
+
+  <!-- Success and Error Messages -->
+  @if (successMessage) {
+    <div class="success-message">{{ successMessage }}</div>
+  }
+  @if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+  }
+
+  <form (ngSubmit)="submit()" class="contact-form">
+    <!-- Name Field -->
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Your Name"
+        required
+      />
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Your Email"
+        required
+      />
+    </div>
+
+    <!-- Message Field -->
+    <div class="form-group">
+      <textarea
+        [(ngModel)]="message"
+        name="message"
+        placeholder="Your Message"
+        required
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+</body>

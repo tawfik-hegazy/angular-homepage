@@ -1,4 +1,6 @@
 export interface Course{
+  description: any;
+  title: any;
 
   _id?: string;
  teacherName: string;

@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CoursesService } from '../../services/courses-service';
 import { UserService } from '../../services/user-service';
 import { Course } from '../../models/course.model';
+// import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-Cmain',
@@ -13,23 +14,22 @@ export class CMain implements OnInit {
 
   private courseServices = inject(CoursesService);
   private userServices = inject(UserService);
+  // private cartService = inject(CartService);
 
   courses: Course[] = [];
-  
 
   ngOnInit(): void {
     this.loadCourses();
   }
 
   loadCourses() {
-  this.courseServices.getAllCourses().subscribe({
-    next: (data) => {
-      this.courses = data.slice(1); 
-      console.log(this.courses);
-    },
-  });
-}
-
+    this.courseServices.getAllCourses().subscribe({
+      next: (data) => {
+        this.courses = data.slice(1); 
+        console.log(this.courses);
+      },
+    });
+  }
 
   starCourse(courseId: string | undefined) {
     this.userServices.starCourse(courseId).subscribe({
@@ -41,4 +41,8 @@ export class CMain implements OnInit {
       },
     });
   }
+
+  // addToCart(course: Course) {
+  //   this.cartService.addToCart(course);
+  // }
 }

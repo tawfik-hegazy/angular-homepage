@@ -1,0 +1,15 @@
+<!-- <button (click)="loadCourses()">load</button> -->
+
+@for(course of courses;track $index){
+
+<p>{{ course.teacherName }}</p>
+
+
+<button (click)="starCourse(course?._id)">star</button>
+
+}
+<!-- <div class="course-card">
+
+<img [src]="'http://localhost:5000/uploads'+course.coverImage" alt="cover image">
+
+</div> -->

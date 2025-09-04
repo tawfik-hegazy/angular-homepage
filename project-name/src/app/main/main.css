@@ -459,4 +459,230 @@
   font-size: large;
   cursor: pointer;
 }
+/* ✨ Smooth Transitions */
+.subject-box,
+.subject-box2,
+.subject-box3,
+.subject-box4,
+.subject-box5,
+.hero-button,
+button.first,
+button.second,
+.text img,
+.text h3,
+.text h5 {
+  transition: all 0.3s ease-in-out;
+}
 
+/* ✨ Hero Button Hover */
+.hero-button:hover {
+  background: #ff4f12;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+}
+
+/* ✨ Subject Boxes Hover */
+.subject-box:hover,
+.subject-box2:hover,
+.subject-box3:hover,
+.subject-box4:hover,
+.subject-box5:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0px 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ✨ Image Zoom */
+.subject-box img,
+.subject-box2 img,
+.subject-box3 img,
+.subject-box4 img,
+.subject-box5 img {
+  transition: transform 0.4s ease;
+}
+
+.subject-box:hover img,
+.subject-box2:hover img,
+.subject-box3:hover img,
+.subject-box4:hover img,
+.subject-box5:hover img {
+  transform: scale(1.08);
+}
+
+/* ✨ Text Fade on Hover */
+.text h3:hover {
+  color: #2563eb;
+  transform: translateY(-3px);
+}
+
+.text h5:hover {
+  opacity: 0.8;
+}
+
+/* ✨ Buttons Hover */
+button.first:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+}
+
+button.second:hover {
+  background: #2563eb;
+  color: white;
+  transform: scale(1.05);
+}
+
+
+/* ====== About Section Modern Scroll Style ====== */
+.about-3d-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f9f9fb, #eef3ff);
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+/* ===== Title & Intro ===== */
+.hero-3d h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1e1e2f;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero-3d p {
+  max-width: 700px;
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* ===== Cards Section ===== */
+.cards-3d {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  max-width: 280px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  opacity: 0;
+  transform: translateY(80px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.4s; }
+.card:nth-child(2) { animation-delay: 0.6s; }
+.card:nth-child(3) { animation-delay: 0.8s; }
+
+.card:hover {
+  transform: translateY(-15px) scale(1.05) rotate3d(1, 1, 0, 8deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 1.6rem;
+  color: #4a4aff;
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===== Logo Section ===== */
+.image-3d img {
+  max-width: 200px;
+  margin-top: 2rem;
+  transform: scale(0.8) rotateY(30deg);
+  transition: transform 1.5s ease;
+  opacity: 0;
+  animation: fadeZoom 1.2s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.image-3d img:hover {
+  transform: scale(1) rotateY(0deg);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotateY(45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .cards-3d {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.subject-box .text .second,
+.subject-box2 .text .second,
+.subject-box3 .text .second,
+.subject-box4 .text .second,
+.subject-box5 .text .second {
+  margin-top: 20px;
+  background-color: #e5e5e5; /* نفس الشكل لكن بلون رمادي فاتح */
+  border-radius: 9px;
+  padding: 20px;
+  font-weight: bold;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  width: 130px; /* نفس عرض زرار GO TO COURSE */
+  font-size: large;
+  text-align: center;
+  text-decoration: none; /* عشان اللينك مايبانش تحته خط */
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+/* Hover Effect */
+.subject-box .text .second:hover,
+.subject-box2 .text .second:hover,
+.subject-box3 .text .second:hover,
+.subject-box4 .text .second:hover,
+.subject-box5 .text .second:hover {
+  background-color: #6a6a6a; /* أزرق مميز */
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+}

@@ -21,18 +21,25 @@ return  this.http.get<any>(this.url).pipe(map((response)=>{
 }))//return response
 
 }
-addCourse(course:Course):Observable<Course>{
+addCourse(course:FormData):Observable<Course>{
 return this.http.post<any>(this.url,course).pipe(map((response)=>{
   return response.data.course;
 }))
 }
+updateCourse(id: string | undefined, updatedData: FormData): Observable<Course> {
+  return this.http.patch<{ status: string; data: { course: Course } }>(`${this.url}/${id}`, updatedData)
+    .pipe(map(response => response.data.course));
+}
 
-updateCourse(id:String,updatedData:Partial<Course>):Observable<Course>{
 
-  return this.http.patch<any>(`${this.url}/${id}`,updatedData).pipe(map((Response)=>{
-    return Response.data.course;
-  }))
-
+getCourseByid(id: string | null): Observable<Course> {
+  return this.http.get<{ status: string; data: { course: Course } }>(`${this.url}/${id}`)
+    .pipe(map(response => response.data.course));
+}
+deleteCourseById(id: string | null): Observable<boolean> {
+  return this.http.delete<any>(`${this.url}/${id}`).pipe(
+    map((response) => response.status === 'success')
+  );
 }
 
 }

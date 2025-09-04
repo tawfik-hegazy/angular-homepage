@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -49,4 +50,13 @@ export class Main {
       Image: '../assets/tolba.jpg',
     }
   ];
+    constructor(private router: Router) {}
+
+  goToSubjects() {
+    this.router.navigate(['/subjects']);
+  }
+
+  goToabout() {
+    this.router.navigate(['/about']);
+  }
 }
