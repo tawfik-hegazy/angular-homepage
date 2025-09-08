@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contactus',
-  imports: [ FormsModule],
+  imports: [FormsModule],
   templateUrl: './contactus.html',
-  styleUrl: './contactus.css'
+  styleUrl: './contactus.css',
 })
 export class Contactus {
   name = '';
@@ -18,7 +18,8 @@ export class Contactus {
   constructor(private contactService: ContactService) {}
 
   submit() {
-    this.contactService.sendMessage({ name: this.name, email: this.email, message: this.message })
+    this.contactService
+      .sendMessage({ name: this.name, email: this.email, message: this.message })
       .subscribe({
         next: (res) => {
           // Show success message
@@ -32,7 +33,7 @@ export class Contactus {
         error: (err) => {
           this.successMessage = '';
           this.errorMessage = 'Error sending message!';
-        }
+        },
       });
   }
 }

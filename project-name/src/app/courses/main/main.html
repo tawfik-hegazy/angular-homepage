@@ -16,31 +16,34 @@
           </section>
 
           <!-- Subjects Section -->
-         <section class="subjects-section">
-  <h2 class="subjects-title">Subjects</h2>
-  <div class="subjects-grid">
-    @for (course of courses; track $index) {
-      <div class="subject-card">
-       <div class="course-card">
-
-<img [src]="'http://localhost:5000/uploads/'+ course.image" alt="cover image" class="course-img">
-
-</div>
-        <div class="subject-info">
-          <h3 class="subject-name">{{ course.courseName }}</h3>
-          <p class="subject-instructor">{{ course.teacherName }}</p>
-          <p class="subject-price">
-            <span class="price-color">{{ course.price }}</span>
-            <span class="price-highlight"> EGP</span>
-          </p>
-          <button class="button">Add To Cart</button>
-<button class="star-button" (click)="starCourse(course?._id)">⭐ Star Course</button>
-        </div>
-      </div>
-    }
-  </div>
-</section>
-
+          <section class="subjects-section">
+            <h2 class="subjects-title">Subjects</h2>
+            <div class="subjects-grid">
+              @for (course of courses; track $index) {
+              <div class="subject-card">
+                <div class="course-card">
+                  <img
+                    [src]="'http://localhost:5000/uploads/' + course.image"
+                    alt="cover image"
+                    class="course-img"
+                  />
+                </div>
+                <div class="subject-info">
+                  <h3 class="subject-name">{{ course.courseName }}</h3>
+                  <p class="subject-instructor">{{ course.teacherName }}</p>
+                  <p class="subject-price">
+                    <span class="price-color">{{ course.price }}</span>
+                    <span class="price-highlight"> EGP</span>
+                  </p>
+                  <button class="button">Add To Cart</button>
+                  <button class="star-button" (click)="starCourse(course?._id)">
+                    ⭐ Star Course
+                  </button>
+                </div>
+              </div>
+              }
+            </div>
+          </section>
         </div>
       </div>
     </main>

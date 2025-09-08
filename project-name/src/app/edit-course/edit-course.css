@@ -1,86 +1,92 @@
-Container
+body {
+  background-image: url("./download.png");
+  background-size: cover;
+  background-position: center;  
+  background-repeat: no-repeat; 
+  width: 100%;
+}
+
 .edit-course-container {
-  max-width: 600px;
+  background-color: #ffffffb5;
+  border-radius: 10px;
+  padding: 20px 30px;
+  width: 400px;
+  max-width: 90%;
   margin: 50px auto;
-  padding: 30px 40px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-family: Arial, sans-serif;
 }
 
-/* Heading */
+
 .edit-course-container h2 {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: #333;
-  font-size: 28px;
 }
 
-/* Form Fields */
 .edit-course-container form div {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .edit-course-container label {
+  display: block;
+  margin-bottom: 5px;
   font-weight: bold;
-  margin-bottom: 6px;
   color: #555;
 }
 
 .edit-course-container input[type="text"],
 .edit-course-container input[type="number"],
-.edit-course-container textarea,
-.edit-course-container input[type="file"] {
-  padding: 10px 12px;
+.edit-course-container textarea {
+  width: 100%;
+  padding: 8px 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
-.edit-course-container input:focus,
-.edit-course-container textarea:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-/* Textarea */
 .edit-course-container textarea {
   resize: vertical;
-  min-height: 100px;
+  height: 80px;
 }
 
-/* Button */
-.edit-course-container button {
-  width: 100%;
-  padding: 12px 0;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 18px;
-  font-weight: bold;
+.edit-course-container input[type="file"] {
   border: none;
-  border-radius: 8px;
+  padding: 5px 0;
+}
+
+.edit-course-container img {
+  display: block;
+  margin-top: 10px;
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.edit-course-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 10px;
+  transition: background-color 0.2s ease;
 }
 
-.edit-course-container button:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
+.edit-course-container button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
 }
 
-.edit-course-container button:hover:not(:disabled) {
-  background-color: #0056b3;
-  transform: translateY(-2px);
+.edit-course-container button[type="submit"]:hover {
+  background-color: #45a049;
 }
 
-/* Responsive */
-@media (max-width: 640px) {
-  .edit-course-container {
-    padding: 20px;
-  }
+.edit-course-container button[type="button"] {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.edit-course-container button[type="button"]:hover {
+  background-color: #da190b;
 }

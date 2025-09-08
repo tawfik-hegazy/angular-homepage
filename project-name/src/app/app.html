@@ -1,4 +1,4 @@
-@if (!ipmsAdminRoute()) {
+@if (!isAdminRoute()) {
   <app-header></app-header>
 } @else {
 <app-admin-header></app-admin-header>
@@ -9,4 +9,3 @@
 @if (!isAdminRoute()) {
   <app-footer></app-footer>
 }
- 

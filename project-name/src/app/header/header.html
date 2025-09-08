@@ -1,18 +1,47 @@
 <header class="site-header">
   <div class="brand">
-    <span class="brand-name">4U<br></span>
+    <span class="brand-name">4U<br /></span>
     <span class="brand-lower">center</span>
   </div>
   <nav class="navigation">
- <ul>
- <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-  <li><a routerLink="/subjects" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Subjects</a></li>
-  <li><a routerLink="/contact Us" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Contact Us</a></li>
-   <li><a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About us</a></li>
+    <ul>
+      <li>
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/subjects"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Subjects</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/contact Us"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Contact Us</a
+        >
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          >About us</a
+        >
+      </li>
 
-  <li><a routerLink="/signin" class="signin-btn" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Sign In</a></li>
-</ul>
-
+      <li>
+        <a
+          routerLink="/signin"
+          class="signin-btn"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Sign In</a
+        >
+      </li>
+    </ul>
   </nav>
-   <!-- <button (click)="logout()" class="signin-btn">log out</button> -->
+  <!-- <button (click)="logout()" class="signin-btn">log out</button> -->
 </header>

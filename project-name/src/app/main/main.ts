@@ -26,31 +26,31 @@ export class Main {
       Image: '../assets/ashraf.jpg',
     },
     {
-       id: 3,
+      id: 3,
       name: 'Mr.Sameh Nashaat',
       subject: 'Geology',
       description:
         'Explore the structure of the Earth and geological phenomena with Mr. Sameh Nashaat — clear, engaging lessons tailored for all levels.',
       Image: '../assets/sameh.jpg',
     },
-        {
-       id: 4,
+    {
+      id: 4,
       name: 'Dr. Mohamed Daif',
       subject: 'Biology',
       description:
         'Understand the wonders of life sciences with Dr. Daif — clear explanations, smart diagrams, and real-world examples to boost your biology skills.',
       Image: '../assets/daif.jpg',
     },
-     {
-       id: 5,
+    {
+      id: 5,
       name: 'Mr.Mohamed Tolba ',
       subject: 'History',
       description:
         'Travel through time and understand historical events with Mr. Mohamed Tolba — engaging storytelling that brings the past to life.',
       Image: '../assets/tolba.jpg',
-    }
+    },
   ];
-    constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
   goToSubjects() {
     this.router.navigate(['/subjects']);

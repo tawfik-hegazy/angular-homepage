@@ -1,7 +1,10 @@
-<!-- <div class="edit-course-container">
+<body class="body">
+  
+
+<div class="edit-course-container">
   <h2>Edit Course</h2>
-  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
-    
+  <form [formGroup]="courseForm" (ngSubmit)="saveEditCourse()">
+
     <div>
       <label>Teacher Name</label>
       <input formControlName="teacherName" type="text" />
@@ -12,13 +15,8 @@
       <input formControlName="courseName" type="text" />
     </div>
 
-    
-
-   
-
     <div>
       <label>Price</label>
-    
       <input placeholder="0" formControlName="price" type="number" />
     </div>
 
@@ -27,6 +25,15 @@
       <input type="file" (change)="onFileSelected($event)" />
     </div>
 
+    <div [hidden]="!imagePreview">
+      <p>Image Preview:</p>
+      <img [src]="imagePreview" alt="Image Preview" width="200" />
+    </div>
+
     <button type="submit">Update Course</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
   </form>
-</div> -->
+</div>
+
+
+</body>

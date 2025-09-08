@@ -9,14 +9,14 @@ import { HttpErrorResponse } from '@angular/common/http';
   selector: 'app-edit-course',
   templateUrl: './edit-course.html',
   styleUrls: ['./edit-course.css'],
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule],
 })
 export class EditCourseComponent implements OnInit {
   courseForm: FormGroup;
   courseId: string | null = null;
   selectedFile: File | null = null;
+  imagePreview: string | undefined;
   currentCourse?: Course;
-  imagePreview: string|undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -27,10 +27,8 @@ export class EditCourseComponent implements OnInit {
     this.courseForm = this.fb.group({
       teacherName: ['', Validators.required],
       courseName: ['', Validators.required],
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ["", [Validators.required, Validators.min(0)]],
-      image: [null]
+      price: ['', [Validators.required, Validators.min(0)]],
+      image: [null],
     });
   }
 
@@ -41,65 +39,64 @@ export class EditCourseComponent implements OnInit {
     }
   }
 
-loadCourse(id: string): void {
-  this.coursesService.getCourseByid(id).subscribe(
-    (course: Course | null) => {
-      if (!course) {
-        alert('Course not found!');
+  loadCourse(id: string): void {
+    this.coursesService.getCourseByid(id).subscribe({
+      next: (course: Course) => {
+        this.currentCourse = course;
+        this.courseForm.patchValue({
+          teacherName: course.teacherName,
+          courseName: course.courseName,
+          price: course.price,
+        });
+
+        if (course.image) {
+          this.imagePreview = `http://localhost:5000/uploads/courses/${course.image}`;
+        }
+      },
+      error: (err: HttpErrorResponse) => {
+        console.error('Failed to load course:', err);
+        alert('Failed to load course data.');
         this.router.navigate(['/admin/subjects']);
-        return;
-      }
-
-      this.currentCourse = course;
-
-      this.courseForm.patchValue({
-        teacherName: course.teacherName || '',
-        courseName: course.courseName || '',
-        price: course.price || 0
-      });
-
-      // Show current image if exists
-      // if (course.image) {
-      //   this.imagePreview = `http://localhost:5000/uploads/courses/${course.image}`;
-      // }
-    },
-    (err: HttpErrorResponse) => {
-      console.error('Failed to load course:', err);
-      alert('Failed to load course data.');
-    }
-  );
-}
+      },
+    });
+  }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
+
+      const reader = new FileReader();
+      reader.onload = () => (this.imagePreview = reader.result as string);
+      reader.readAsDataURL(this.selectedFile);
     }
   }
 
-  onSubmit(): void {
+  saveEditCourse(): void {
     if (!this.courseId || this.courseForm.invalid) return;
 
     const formData = new FormData();
     formData.append('teacherName', this.courseForm.get('teacherName')?.value);
     formData.append('courseName', this.courseForm.get('courseName')?.value);
-    formData.append('title', this.courseForm.get('title')?.value);
-    formData.append('description', this.courseForm.get('description')?.value);
     formData.append('price', this.courseForm.get('price')?.value);
 
     if (this.selectedFile) {
       formData.append('image', this.selectedFile);
     }
 
-    this.coursesService.updateCourse(this.courseId, formData).subscribe(
-      () => {
+    this.coursesService.updateCourse(this.courseId, formData).subscribe({
+      next: (updatedCourse) => {
         alert('Course updated successfully!');
-        this.router.navigate(['/admin/subjects']);
+        this.loadCourse(this.courseId!); // reload updated data
       },
-      (err: HttpErrorResponse) => {
+      error: (err) => {
         console.error('Failed to update course:', err);
         alert('Failed to update course.');
-      }
-    );
+      },
+    });
+  }
+
+  cancelEdit(): void {
+    this.router.navigate(['/admin/subjects']);
   }
 }

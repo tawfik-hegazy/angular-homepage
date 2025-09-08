@@ -1,10 +1,10 @@
 .body {
   display: flex;
-  justify-content: center;  /* محاذاة أفقية */
-  align-items: center;      /* محاذاة رأسية */
-  min-height: 100vh;        /* يملأ الشاشة */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;       
   margin: 0;
-  background-color: #f8f9fa; /* خلفية فاتحة */
+  background-color: #f8f9fa; 
   font-family: Arial, sans-serif;
 }
 

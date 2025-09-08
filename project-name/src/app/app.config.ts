@@ -9,6 +9,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-  provideHttpClient() // step 1
+  provideHttpClient() // step 1  to talk to the backend
   ]
 };

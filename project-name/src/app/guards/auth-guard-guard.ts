@@ -3,10 +3,10 @@ import { AuthService } from '../services/auth-service';
 import { inject } from '@angular/core';
 
 export const authGuardGuard: CanActivateFn = (route, state) => {
+  const user = inject(AuthService).user.value;
 
-const user=inject(AuthService).user.value;
-return user?.token ? true:inject(Router).createUrlTree(['/signin'])
-
+  console.log(user?.token)
+  return user?.token ? true : inject(Router).createUrlTree(['/signin']);
 
   return true;
 };

@@ -1,41 +1,62 @@
-
 <!-------------------------sign in form-------------------------------------------------------------------------------------->
 <body>
   <div class="signin-container">
-    <form class="form-section"   #signinForm="ngForm"  (ngSubmit)="onSubmit()">
+    <form class="form-section" #signinForm="ngForm" (ngSubmit)="onSubmit()">
       <h1>Sign In</h1>
-
+      <!------------------------Email---------------------------------->
       <label for="email">Email</label>
-      <input type="email" id="email" placeholder="email@gmail.com" ngModel required name="email" email #emailRef="ngModel">
+      <input
+        type="email"
+        id="email"
+        placeholder="email@gmail.com"
+        ngModel
+        required
+        name="email"
+        email
+        #emailRef="ngModel"
+      />
+      <!-- 3sha y3mel Validation Error for Email -->
 
-     @if (emailRef.invalid && emailRef.touched) {
-  <small class="error-message">*Valid Email is required</small>
-     }
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="password" ngModel required minlength="8" name="password"  #passwordRef="ngModel">
-
-     @if (passwordRef.invalid && passwordRef.touched) {
-  <small class="error-message">*Valid password is required</small>
-}
-
-      @if(error){
-        <p>{{error}}</p>
+      @if (emailRef.invalid && emailRef.touched) {
+      <small class="error-message">*Valid Email is required</small>
       }
 
-      
-<button
-  type="submit"
-  [disabled]="signinForm.invalid"
-  [style.backgroundColor]="signinForm.invalid ? 'gray' : 'blue'"
-  style="color: white; padding: 10px 20px; border: none; border-radius: 5px;"
->
-  Sign In
-</button>
+      <!-- Password  -->
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="password"
+        ngModel
+        required
+        minlength="8"
+        name="password"
+        #passwordRef="ngModel"
+      />
+      <!-- 3sha y3mel Validation Error for Password -->
+
+      @if (passwordRef.invalid && passwordRef.touched) {
+      <small class="error-message">*Valid password is required</small>
+      } @if(error){
+      <small class="error-message">
+        <p>{{ error }}</p>
+      </small>
+      <!--error message form the back end-->
+      }
+
+      <button
+        type="submit"
+        [disabled]="signinForm.invalid"
+        [style.backgroundColor]="signinForm.invalid ? 'gray' : 'blue'"
+        style="color: white; padding: 10px 20px; border: none; border-radius: 5px"
+      >
+        Sign In
+      </button>
     </form>
 
     <div class="image-section">
-      <img src="assets/logo.png" alt="4U Education Center Logo">
+      <img src="assets/logo.png" alt="4U Education Center Logo" />
     </div>
   </div>
 </body>
-  

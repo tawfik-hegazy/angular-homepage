@@ -11,26 +11,27 @@ import { Router } from '@angular/router';
 })
 export class Signin {
   private authservice = inject(AuthService);
-private router=inject(Router)
-@ViewChild('signinForm')signinForm !:NgForm;
+  private router = inject(Router);
+  @ViewChild('signinForm') signinForm!: NgForm;
 
-error:string='';
+  error: string = '';
 
   onSubmit() {
-    const {email,password}=this.signinForm.value;
+    const { email, password } = this.signinForm.value;
     this.authservice.login(email, password).subscribe({
       next: (user) => {
         console.log(user);
-        this.signinForm.reset();
-        this.router.navigate(['/admin/subjects']) // on sign in it makes him go to admin page
+        this.signinForm.reset(); 
+        this.router.navigate(['/admin/subjects']);
       },
- 
+
       error: (err) => {
-        this.error=err.message
+        this.error = err.message;
+
+        setTimeout(() => {
+          this.error = '';
+        }, 3000);
       },
     });
-
   }
-
-
 }

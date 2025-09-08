@@ -29,29 +29,36 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   {
-    path: 'admin/dashboard',
+    path: 'admin',
     component: Admin,
     canActivate: [authGuardGuard],
     canActivateChild: [authChildGuard],
     title: 'Admin DashBoard',
-    children: [
-
-    ],
-
+    children: [  
+  {
+    path: 'subjects',
+    component: TSComponent,
+    // canActivate: [authGuardGuard],
+    // canActivateChild: [authChildGuard],
+    title: 'Teachers & Subjects',
+  },{
+    path: 'addCourse',
+    component: AddCourse,
+    title: 'Add Course',
+    // canDeactivate: [unsavedChangesGuard],
   },
-        {
-        path: 'addCourse',
-        component: AddCourse,
-        title: 'Add Course',
-        // canDeactivate: [unsavedChangesGuard],
-      },
-      { path: 'admin/subjects', component: TSComponent, canActivate: [authGuardGuard],
-    canActivateChild: [authChildGuard],title: 'Teachers & Subjects' },
 
-{ path: 'deleteCourse/:id', component: DeleteCourseComponent},
+  { path: 'deleteCourse/:id', component: DeleteCourseComponent },
  { path: 'edit-course/:id', component: EditCourseComponent },
-  { path: 'admin', component: AdminHeader, canActivate: [authGuardGuard],
-    canActivateChild: [authChildGuard],title: 'Teachers & Subjects' },
+
+  {
+    path: 'admin',
+    component: AdminHeader,
+    canActivate: [authGuardGuard],
+    canActivateChild: [authChildGuard],
+    title: 'Teachers & Subjects',
+  },],
+  },
+
   { path: '**', component: NotFound, title: 'page-notFound' },
-  
 ];

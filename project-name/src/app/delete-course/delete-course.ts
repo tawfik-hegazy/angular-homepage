@@ -5,15 +5,15 @@ import { CoursesService } from '../services/courses-service';
 @Component({
   selector: 'app-delete-course',
   templateUrl: './delete-course.html',
-  styleUrls: ['./delete-course.css']
+  styleUrls: ['./delete-course.css'],
 })
 export class DeleteCourseComponent implements OnInit {
   private courseService = inject(CoursesService);
   private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
 
-  message = signal<string | null>(null);   
-  status = signal<'success' | 'error' | 'loading' | null>(null); 
+  message = signal<string | null>(null);
+  status = signal<'success' | 'error' | 'loading' | null>(null);
 
   ngOnInit(): void {
     const courseId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -25,7 +25,7 @@ export class DeleteCourseComponent implements OnInit {
         this.status.set('loading');
         this.message.set('⏳ Deleting course, please wait...');
 
-        
+                // Call service to delete course
         this.courseService.deleteCourseById(courseId).subscribe({
           next: (success) => {
             if (success) {
@@ -42,8 +42,10 @@ export class DeleteCourseComponent implements OnInit {
             this.status.set('error');
             this.message.set('⚠️ Something went wrong while deleting');
             setTimeout(() => this.router.navigate(['/admin/subjects']), 3000);
-          }
+          },
         });
+
+        //navigates to the subjects panel page 
       } else {
         this.router.navigate(['/admin/subjects']);
       }

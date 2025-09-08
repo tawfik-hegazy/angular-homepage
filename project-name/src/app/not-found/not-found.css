@@ -1,52 +1,75 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #666769, #390e0e);
-  color: #fff;
-  display: flex;
-  justify-content: center;
+
+body
+{
+  background-color:#fff;
+/*   background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed; */
+}
+
+.hero-button {
+  width: 130px;
+  height: 90px;
+  background-color: rgb(241, 166, 27);
+  -webkit-text-fill-color: #fff;
+  background-size: 60%; /* عشان الأيقونة متبقاش لازقة */
+  border: none;
+  border-radius: 10%; /* يخليه زر دائري */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   align-items: center;
-  height: 100vh;
-  text-align: center;
+  align-content: center;
+  margin-left: 49.5%;
+  font-weight: bolder;
 }
 
-.container {
-  max-width: 500px;
-}
-
-h1 {
-  font-size: 8rem;
-  margin: 0;
-  animation: bounce 1.5s infinite;
-}
-
-p {
-  font-size: 1.5rem;
-  margin: 20px 0;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background: #ff6b6b;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #ff4757;
+/* تأثير عند المرور بالماوس */
+.hero-button:hover {
   transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  background-color: rgb(210, 140, 10);
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
+
+#handboy
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 98% 98%;
+    transform-box: fill-box;
+    
+}
+
+
+#girllight
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 0% 97%;
+    transform-box: fill-box;
+}
+
+#hairgirl
+{
+    animation: swinghair ease-in-out 1.3s infinite alternate;
+   transform-origin: 60% 0%;
+    transform-box: fill-box;
+  
+}
+
+#zero
+{
+  transform-origin:bottom;
+  transform-box:fill-box;
+  
+}
+
+/*************swing************/
+@keyframes swing {
+    0% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
+}
+
+
+/*************swing hair************/
+@keyframes swinghair {
+    0% { transform: rotate(6deg); }
+    100% { transform: rotate(-6deg); }
 }
